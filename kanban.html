@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kanban</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./kanBan.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <span class="text">Kanban Board</span>
+        <div id="card-container">
+            <div class="toDoCard" id="card1" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="cardText">To Do 
+                    <span class="imgSpan"><img src="./images/circle-plus-solid.svg"></span>
+                </div>
+                <div class="description">Add all the tasks</div>
+                <div class="hr"></div>
+            </div>
+            <div class="toDoCard" id="card2" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="cardText">Doing
+                    <span class="imgSpan"><img src="./images/circle-plus-solid.svg"></span>
+                </div>
+                <div class="description">maintain ongoing tasks</div>
+                <div class="hr"></div>
+            </div>
+            <div class="toDoCard" id="card3"  ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="cardText">Done
+                    <span class="imgSpan"><img src="./images/circle-plus-solid.svg"></span>
+                </div>
+                <div class="description">completed tasks</div>
+                <div class="hr"></div>
+            </div>
+        </div>
+    </div>
+    <script src="./kanBanScript.js"></script>
+</body>
+</html>
