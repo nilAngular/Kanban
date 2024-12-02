@@ -60,6 +60,12 @@
     background-color: #fff;
 }
 
+/* .addAnimation{
+    opacity: 0.7;
+    transform: rotate(25deg);
+    transition : transform 0.3s ease, background-color 0.3s ease;
+} */
+
 .itemText{
     font-family:sans-serif;
     font-size: 14px;
@@ -67,4 +73,11 @@
     position: relative;
     top: 5px;
     left: 10px;
+}
+
+.btnClass{
+    margin-top: 10px;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
 }

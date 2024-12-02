@@ -21,7 +21,7 @@ function addItems(btn){
     divEle.setAttribute('id',`${toDoCardId}+item${++this.idCounter}}`)
     divEle.setAttribute("draggable","true");
     divEle.addEventListener('dragstart',drag);
-    divEle.addEventListener('dragend', dragEnd);
+    divEle.addEventListener('dragend', dragEnd);   
     /*end drag attributes*/
     toDoCardDiv.appendChild(divEle);
     console.log(divEle);
@@ -35,7 +35,7 @@ function addItems(btn){
 
 function drag(event){
     event.dataTransfer.setData("item", event.target.id);
-    event.dataTransfer.effectAllowed="move"
+    event.dataTransfer.effectAllowed="move";
 }
 
 function drop(ev) {
@@ -58,5 +58,48 @@ function dragEnd(event){
         event.target.remove();
     }
 } 
+
+const addCardBtn = document.getElementById('cardBtn');
+addCardBtn.addEventListener('click',addCards);
+
+this.cardIdCounter=3
+function addCards(){
+    let cardContainer = document.querySelector('#card-container');
+    let cardName = window.prompt('Please enter card name');
+    let description = window.prompt('Please enter description');
+
+    let cardDiv = document.createElement('div');
+    cardDiv.classList.add('toDoCard');
+    cardDiv.setAttribute('id',`card${++this.cardIdCounter}`);
+    cardDiv.addEventListener('drop',drop);
+    cardDiv.addEventListener('dragover',allowDrop);
+    
+    let cardHead=document.createElement('div');
+    cardHead.classList.add('cardText');
+    cardHead.innerText = cardName;
+    let imgSpan = document.createElement('span');
+    imgSpan.classList.add('imgSpan');
+    let imgTag = document.createElement('img');
+    imgTag.src = "./images/circle-plus-solid.svg";
+    imgSpan.appendChild(imgTag);     
+    cardHead.appendChild(imgSpan);
+
+    imgSpan.addEventListener('click',() =>{
+        addItems(imgSpan);
+    })
+
+    let cardDesc = document.createElement('div');
+    cardDesc.classList.add('description');
+    cardDesc.innerText=description;
+
+    cardDiv.appendChild(cardHead);
+    cardDiv.appendChild(cardDesc);
+    cardContainer.insertBefore(cardDiv,document.querySelector('.btnClass'));
+
+    const underline = document.createElement('div');
+    underline.classList.add('hr');
+    cardDiv.appendChild(underline);
+
+}
 
 onLoad();
