@@ -58,13 +58,18 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     margin-top: 10px;
     background-color: #fff;
+    cursor: grab;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* .addAnimation{
-    opacity: 0.7;
-    transform: rotate(25deg);
-    transition : transform 0.3s ease, background-color 0.3s ease;
-} */
+.dragging {
+    transform: rotate(15deg);
+    opacity: 0.5;
+}
+  
+.hidden{
+    display: none;
+}
 
 .itemText{
     font-family:sans-serif;

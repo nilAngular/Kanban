@@ -12,6 +12,7 @@ function onLoad(){
 this.idCounter = 0;
 function addItems(btn){
     let task = window.prompt("Please enter task name");
+    if(task){
     const toDoCardId = btn.parentNode.parentNode.id;
     const toDoCardDiv = document.querySelector(`#${btn.parentNode.parentNode.id}`);
 
@@ -30,12 +31,16 @@ function addItems(btn){
     spanEle.innerText =task;
     spanEle.classList.add('itemText');
     divEle.appendChild(spanEle);   
-
+    }
 }
 
 function drag(event){
     event.dataTransfer.setData("item", event.target.id);
+    event.target.classList.add('dragging');
     event.dataTransfer.effectAllowed="move";
+    setTimeout(() => {
+        event.target.classList.add('hidden');
+    }, 0); 
 }
 
 function drop(ev) {
@@ -54,6 +59,7 @@ function drop(ev) {
   }
 
 function dragEnd(event){
+    event.target.classList.remove('dragging','hidden');
     if (event.dataTransfer.dropEffect === "none") {
         event.target.remove();
     }
@@ -64,10 +70,11 @@ addCardBtn.addEventListener('click',addCards);
 
 this.cardIdCounter=3
 function addCards(){
+    
     let cardContainer = document.querySelector('#card-container');
     let cardName = window.prompt('Please enter card name');
     let description = window.prompt('Please enter description');
-
+    if(cardName && description){
     let cardDiv = document.createElement('div');
     cardDiv.classList.add('toDoCard');
     cardDiv.setAttribute('id',`card${++this.cardIdCounter}`);
@@ -99,7 +106,7 @@ function addCards(){
     const underline = document.createElement('div');
     underline.classList.add('hr');
     cardDiv.appendChild(underline);
-
+    }
 }
 
 onLoad();
